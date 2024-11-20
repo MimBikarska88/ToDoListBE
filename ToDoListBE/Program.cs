@@ -5,11 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers().AddJsonOptions(options =>
-{
-    // Customize DateTime format (for example, "yyyy-MM-dd")
-    options.JsonSerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
-});
+builder.Services.AddControllers();
 
 builder.Services.AddCors(options =>
 {
@@ -39,8 +35,6 @@ app.UseCors("ReactVite");
 
 
 app.UseHttpsRedirection();
-
-app.UseAuthorization();
 
 app.MapControllers();
 
